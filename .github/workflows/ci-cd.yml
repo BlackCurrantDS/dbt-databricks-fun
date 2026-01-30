@@ -50,3 +50,6 @@ jobs:
 
       - name: Validate dbt connection
         run: dbt debug --profiles-dir $DBT_PROFILES_DIR --project-dir $DBT_PROJECT_DIR --target dev
+
+      - name: Run dbt models
+        run: dbt run --profiles-dir $DBT_PROFILES_DIR --project-dir $DBT_PROJECT_DIR --target dev
