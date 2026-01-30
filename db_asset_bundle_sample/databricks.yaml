@@ -1,0 +1,31 @@
+# databricks.yml
+
+bundle:
+  name: my-dbt-bundle
+
+workspace:
+  host: ${DATABRICKS_HOST}              
+  root_path: /Shared/bundles/my-dbt-bundle
+
+targets:
+  dev:
+    mode: development
+  prod:
+    mode: production
+
+resources:
+  jobs:
+    dbt_prod_job:
+      name: "dbt-prod-build"
+      tasks:
+        - task_key: dbt_build
+          new_cluster:
+            spark_version: 14.3.x-scala2.12
+            node_type_id: i3.xlarge
+            num_workers: 2
+          libraries:
+            - pypi:
+                package: "dbt-databricks"
+          spark_python_task:
+            python_file: "file://scripts/run_dbt.py"
+            parameters: ["build"]
