@@ -31,6 +31,17 @@ jobs:
           pip install --upgrade pip
           pip install databricks-cli
 
+      - name: Verify Databricks CLI Authentication
+        run: |
+          export DATABRICKS_HOST=${{ secrets.DATABRICKS_HOST_CLI }}
+          export DATABRICKS_CLIENT_ID=${{ secrets.DATABRICKS_CLIENT_ID_CLI }}
+          export DATABRICKS_CLIENT_SECRET=${{ secrets.DATABRICKS_TOKEN_CLI }}
+          export DATABRICKS_AUTH_TYPE=databricks-client-creds
+
+          echo "Testing Databricks CLI authentication..."
+          databricks current-user me
+
+
       - name: Build dbt Asset Bundle
         run: |
           zip -r dbt_bundle_dev.zip ./db_asset_bundle_sample
