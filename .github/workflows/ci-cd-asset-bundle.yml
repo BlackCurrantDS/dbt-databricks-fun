@@ -29,7 +29,8 @@ jobs:
       - name: Install databricks cli
         run: |
           pip install --upgrade pip
-          pip install databricks-cli
+          pip install -U databricks==0.205.0
+          databricks -v
 
       - name: Verify Databricks CLI Authentication
         run: |
