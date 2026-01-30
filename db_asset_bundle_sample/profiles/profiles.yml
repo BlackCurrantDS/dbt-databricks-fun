@@ -3,7 +3,8 @@ db_asset_bundle_sample:
   outputs:
     dev:
       type: databricks
-      schema: default
+      catalouge: workspace
+      schema: dbt_test
       auth_type: oauth
       host: "{{ env_var('DATABRICKS_HOST') }}"
       client_id: "{{ env_var('DATABRICKS_CLIENT_ID') }}"
