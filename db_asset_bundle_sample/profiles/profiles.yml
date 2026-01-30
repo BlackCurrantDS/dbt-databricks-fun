@@ -1,4 +1,4 @@
-profile:
+db_asset_bundle_sample:
   target: dev
   outputs:
     dev:
