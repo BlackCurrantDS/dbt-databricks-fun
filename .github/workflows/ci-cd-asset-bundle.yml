@@ -26,7 +26,7 @@ jobs:
           python-version: '3.10'
 
 
-      - name: Install dbt and Databricks adapter and databricks cli
+      - name: Install databricks cli
         run: |
           pip install --upgrade pip
           pip install databricks-cli
@@ -36,5 +36,8 @@ jobs:
           zip -r dbt_bundle_dev.zip ./db_asset_bundle_sample
 
       - name: Deploy dbt Asset Bundle to Databricks
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         run: |
           databricks workspace import --overwrite --language PYTHON dbt_bundle_dev.zip /Repos/my_org/dbt_bundle_dev
