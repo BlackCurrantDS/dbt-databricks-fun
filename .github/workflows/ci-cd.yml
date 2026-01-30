@@ -17,7 +17,7 @@ jobs:
     env:
       DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
       DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
-      DBT_PROFILES_DIR: ./db_asset_bundle_sample\profiles 
+      DBT_PROFILES_DIR: ./db_asset_bundle_sample/profiles/ 
       DBT_PROJECT_DIR: ./db_asset_bundle_sample
 
     steps:
