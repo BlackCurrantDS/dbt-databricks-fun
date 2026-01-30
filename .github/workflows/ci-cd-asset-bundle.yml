@@ -42,8 +42,5 @@ jobs:
           zip -r dbt_bundle_dev.zip ./db_asset_bundle_sample
 
       - name: Deploy dbt Asset Bundle to Databricks
-        env:
-          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST_CLI }}
-          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN_CLI }}
         run: |
-          databricks workspace import --overwrite --language PYTHON dbt_bundle_dev.zip /Repos/my_org/dbt_bundle_dev
+          databricks workspace import --file dbt_bundle_dev.zip  --overwrite --language PYTHON /Repos/my_org/dbt_bundle_dev
