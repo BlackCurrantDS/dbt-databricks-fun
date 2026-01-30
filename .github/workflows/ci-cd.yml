@@ -46,4 +46,4 @@ jobs:
         run: dbt --version
 
       - name: Validate dbt connection
-        run: dbt debug --profiles-dir $DBT_PROFILES_DIR --project-dir $DBT_PROJECT_DIR --target databricks
+        run: dbt debug --profiles-dir $DBT_PROFILES_DIR --project-dir $DBT_PROJECT_DIR --target dev
