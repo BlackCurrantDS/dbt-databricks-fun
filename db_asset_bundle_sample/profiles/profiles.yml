@@ -4,7 +4,7 @@ db_asset_bundle_sample:
     dev:
       type: databricks
       schema: default
-      host: ${{ secrets.DATABRICKS_HOST }}
-      http_path: ${{ secrets.DATABRICKS_HTTP_PATH }}
-      token: ${{ secrets.DATABRICKS_TOKEN }}
+      host: "{{ env_var('DATABRICKS_HOST') }}"
+      http_path: "{{ env_var('DATABRICKS_HTTP_PATH') }}"
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
       threads: 4
