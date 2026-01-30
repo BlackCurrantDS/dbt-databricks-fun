@@ -12,7 +12,6 @@ jobs:
       DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST_CLI }}
       DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID_CLI }}
       DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_TOKEN_CLI }}
-      DATABRICKS_AUTH_TYPE: databricks-client-creds
       DBT_PROFILES_DIR: ./db_asset_bundle_sample/profiles/ 
       DBT_PROJECT_DIR: ./db_asset_bundle_sample
 
@@ -25,10 +24,13 @@ jobs:
         with:
           python-version: '3.10'
 
+      - name: Install Databricks CLI
+        uses: databricks/setup-cli@main
 
-      - name: Install databricks CLI
+      # Step 6: Run Databricks CLI commands (example)
+      - name: Create a Cluster (Optional)
         run: |
-         curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+          databricks clusters list
 
       - name: List databricks repos
         env:
