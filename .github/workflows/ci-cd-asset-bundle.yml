@@ -43,4 +43,4 @@ jobs:
 
       - name: Deploy dbt Asset Bundle to Databricks
         run: |
-          databricks workspace import --file dbt_bundle_dev.zip  --overwrite --language PYTHON /Repos/dbt_bundle_dev
+          databricks workspace import --file dbt_bundle_dev.zip  --overwrite --language PYTHON /Workspace/Repos/dbt_bundle_dev
