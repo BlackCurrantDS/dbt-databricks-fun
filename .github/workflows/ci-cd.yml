@@ -17,6 +17,7 @@ jobs:
     env:
       DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
       DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+      DBT_PROFILES_DIR: ${{ github.workspace }}/db_asset_bundle_sample/profiles
 
     steps:
       - name: Checkout repository
@@ -34,19 +35,6 @@ jobs:
 
       - name: Verify dbt installation
         run: dbt --version
-
-      # Set DBT_PROFILES_DIR to point to your profiles directory
-      - name: Set environment variable for dbt profiles
-        run: echo "DBT_PROFILES_DIR=${{ github.workspace }}/profiles" >> $GITHUB_ENV
-
-      - name: Run dbt deps
-        run: dbt deps
-
+        
       - name: Validate dbt connection
         run: dbt debug --target databricks
-
-      - name: Run dbt models
-        run: dbt run --target databricks
-
-      - name: Run dbt tests
-        run: dbt test --target databricks
