@@ -29,7 +29,6 @@ jobs:
       - name: Install dbt and Databricks adapter and databricks cli
         run: |
           pip install --upgrade pip
-          pip install dbt-core dbt-databricks
           pip install databricks-cli
 
       - name: Build dbt Asset Bundle
@@ -38,4 +37,4 @@ jobs:
 
       - name: Deploy dbt Asset Bundle to Databricks
         run: |
-          databricks workspace import --overwrite dbt_bundle_dev.zip /Repos/my_org/dbt_bundle_dev
+          databricks workspace import --overwrite --language PYTHON dbt_bundle_dev.zip /Repos/my_org/dbt_bundle_dev
