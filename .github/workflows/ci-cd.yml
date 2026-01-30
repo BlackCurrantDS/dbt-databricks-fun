@@ -18,6 +18,7 @@ jobs:
       DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
       DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
       DATABRICKS_HTTP_PATH: ${{ secrets.DATABRICKS_HTTP_PATH }}
+      DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID}}
       DBT_PROFILES_DIR: ./db_asset_bundle_sample/profiles/ 
       DBT_PROJECT_DIR: ./db_asset_bundle_sample
 
