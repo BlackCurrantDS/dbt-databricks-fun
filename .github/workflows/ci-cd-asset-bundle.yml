@@ -37,7 +37,7 @@ jobs:
 
       - name: Deploy dbt Asset Bundle to Databricks
         env:
-          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HTTP_PATH }}
-          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST_CLI }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN_CLI }}
         run: |
           databricks workspace import --overwrite --language PYTHON dbt_bundle_dev.zip /Repos/my_org/dbt_bundle_dev
