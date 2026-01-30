@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     env:
-      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
-      DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_TOKEN }}
-      DATABRICKS_HTTP_PATH: ${{ secrets.DATABRICKS_HTTP_PATH }}
-      DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID}}
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST_CLI }}
+      DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID_CLI }}
+      DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_TOKEN_CLI }}
+      DATABRICKS_AUTH_TYPE: databricks-client-creds
       DBT_PROFILES_DIR: ./db_asset_bundle_sample/profiles/ 
       DBT_PROJECT_DIR: ./db_asset_bundle_sample
 
