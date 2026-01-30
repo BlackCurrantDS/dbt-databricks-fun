@@ -17,7 +17,8 @@ jobs:
     env:
       DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
       DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
-      DBT_PROFILES_DIR: ${{ github.workspace }}/db_asset_bundle_sample/profiles/
+      DBT_PROFILES_DIR: ./db_asset_bundle_sample/profiles
+      DBT_PROJECT_DIR: ./db_asset_bundle_sample
 
     steps:
       - name: Checkout repository
@@ -34,7 +35,7 @@ jobs:
           echo "DBT_PROFILES_DIR = $DBT_PROFILES_DIR"
           pwd
           ls -la
-          find . -name profile.yml
+          find . -name profiles.yml
 
       - name: Install dbt Core + Databricks adapter
         run: |
@@ -45,4 +46,4 @@ jobs:
         run: dbt --version
 
       - name: Validate dbt connection
-        run: dbt debug --profiles-dir $DBT_PROFILES_DIR --target databricks
+        run: dbt debug --profiles-dir $DBT_PROFILES_DIR --project-dir $DBT_PROJECT_DIR --target databricks
