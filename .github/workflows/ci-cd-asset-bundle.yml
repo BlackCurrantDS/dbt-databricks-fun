@@ -1,0 +1,39 @@
+name: DBT CI/CD with Asset Bundles
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  dbt-dev:
+    runs-on: ubuntu-latest
+    environment: dev
+    env:
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+      DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_TOKEN }}
+      DATABRICKS_HTTP_PATH: ${{ secrets.DATABRICKS_HTTP_PATH }}
+      DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID}}
+      DBT_PROFILES_DIR: ./db_asset_bundle_sample/profiles/ 
+      DBT_PROJECT_DIR: ./db_asset_bundle_sample
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dbt and Databricks adapter
+        run: |
+          pip install --upgrade pip
+          pip install dbt-core dbt-databricks
+
+      - name: Build dbt Asset Bundle
+        run: |
+          zip -r dbt_bundle_dev.zip ./db_asset_bundle_sample
+
+      - name: Deploy dbt Asset Bundle to Databricks
+        run: |
+          databricks workspace import --overwrite dbt_bundle_dev.zip /Repos/my_org/dbt_bundle_dev

@@ -2,13 +2,7 @@ name: Run dbt Models on Databricks
 
 on:
   workflow_dispatch:  # allow manual trigger
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
+  
 jobs:
   run-dbt:
     name: Execute dbt Models on Databricks
