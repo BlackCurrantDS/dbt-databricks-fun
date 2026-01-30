@@ -13,6 +13,7 @@ jobs:
   run-dbt:
     name: Execute dbt Models on Databricks
     runs-on: ubuntu-latest
+    environment: dev
 
     env:
       DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
