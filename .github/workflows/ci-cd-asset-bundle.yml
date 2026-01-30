@@ -39,7 +39,7 @@ jobs:
           export DATABRICKS_AUTH_TYPE=databricks-client-creds
 
           echo "Testing Databricks CLI authentication..."
-          databricks current-user me
+          databricks auth whoami
 
 
       - name: Build dbt Asset Bundle
