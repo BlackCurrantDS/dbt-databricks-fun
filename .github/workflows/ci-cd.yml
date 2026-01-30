@@ -17,11 +17,13 @@ jobs:
     env:
       DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
       DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
-      DBT_PROFILES_DIR: ${{ github.workspace }}/db_asset_bundle_sample/profiles
+      DBT_PROFILES_DIR: ${{ github.workspace }}/repo/db_asset_bundle_sample/profiles
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          path: repo
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -35,6 +37,6 @@ jobs:
 
       - name: Verify dbt installation
         run: dbt --version
-        
+
       - name: Validate dbt connection
         run: dbt debug --target databricks
