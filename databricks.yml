@@ -4,7 +4,7 @@ bundle:
   name: my-dbt-bundle
 
 run_as:
-  service_principal_name: test
+  service_principal_name: databrickscli
 
 include:
   - resources/*.yml
