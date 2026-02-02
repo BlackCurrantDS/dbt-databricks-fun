@@ -19,7 +19,7 @@ resources:
           dbt_task:
             project_directory: db_asset_bundle_sample/
             # The default schema, catalog, etc. are defined in ../dbt_profiles/profiles.yml
-            profiles_directory: db_asset_bundle_sample/dbt_profiles/
+            profiles_directory: db_asset_bundle_sample/profiles/
             commands:
               # The dbt commands to run (see also dbt_profiles/profiles.yml; dev_schema is used in the dev profile)
               - "dbt run  --project-dir $DBT_PROJECT_DIR --profiles-dir $DBT_PROFILES_DIR --target=${bundle.target}"
