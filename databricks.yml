@@ -19,4 +19,4 @@ targets:
     default: true
     workspace:
       host: https://dbc-a1581223-795d.cloud.databricks.com/
-      root_path: /Workspace/dbt_bundle_dev
+      root_path: "/Workspace/Users/bhardwaj.priyamvada30@gmail.com/dbt_bundle/dev"
