@@ -29,22 +29,22 @@ jobs:
         uses: databricks/setup-cli@main
 
       # Step 6: Run Databricks CLI commands (example)
-      - name: Create a Cluster (Optional)
-        run: |
-          databricks clusters list
+      #- name: Create a Cluster (Optional)
+      #  run: |
+      #    databricks clusters list
 
-      - name: List databricks repos
-        run: |
-          databricks repos list
+      #- name: List databricks repos
+      #  run: |
+      #    databricks repos list
 
 
-      - name: Build dbt Asset Bundle
-        run: |
-          zip -r dbt_bundle_dev.zip ./db_asset_bundle_sample
+      #- name: Build dbt Asset Bundle
+      #  run: |
+      #    zip -r dbt_bundle_dev.zip ./db_asset_bundle_sample
 
-      - name: Deploy dbt Asset Bundle to Databricks
-        run: |
-          databricks workspace import --file dbt_bundle_dev.zip  --overwrite --language PYTHON /Workspace/dbt_bundle_dev
+      #- name: Deploy dbt Asset Bundle to Databricks
+      #  run: |
+      #    databricks workspace import --file dbt_bundle_dev.zip  --overwrite --language PYTHON /Workspace/dbt_bundle_dev
 
       - name: Validate bundle
         run: |
