@@ -1,4 +1,4 @@
-esources:
+resources:
   jobs:
     dbt_sql_job:
       name: dbt_sql_job
