@@ -48,11 +48,11 @@ jobs:
 
       - name: Validate bundle
         run: |
-          databricks bundle validate --bundle-file databricks_part/databricks.yml --target $DATABRICKS_BUNDLE_TARGET
+          databricks bundle validate --target $DATABRICKS_BUNDLE_TARGET
 
       - name: Deploy bundle
         run: |
-          databricks bundle deploy --bundle-file databricks_part/databricks.yml --target $DATABRICKS_BUNDLE_TARGET
+          databricks bundle deploy --target $DATABRICKS_BUNDLE_TARGET
       
       # Optional: trigger job immediately after deploy (in addition to its schedule)
       # - name: Run dbt_build_job once
