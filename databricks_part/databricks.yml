@@ -4,7 +4,7 @@ bundle:
   name: my-dbt-bundle
 
 run_as:
-  service_principal_name: ${var.service_principal_name}
+  service_principal_name: test
 
 include:
   - resources/*.yml
