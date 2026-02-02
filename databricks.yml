@@ -18,5 +18,5 @@ targets:
     mode: development
     default: true
     workspace:
-      host: "${DATABRICKS_DEV_HOST}"
+      host: https://dbc-a1581223-795d.cloud.databricks.com/
       root_path: /Workspace/dbt_bundle_dev
