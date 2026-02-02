@@ -18,5 +18,5 @@ targets:
     mode: development
     default: true
     workspace:
-      host: ${{ secrets.DATABRICKS_HOST_CLI }}
+      host: DATABRICKS_HOST
       root_path: /Workspace/dbt_bundle_dev
