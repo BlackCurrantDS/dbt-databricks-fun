@@ -22,7 +22,7 @@ resources:
             profiles_directory: dbt_profiles/
             commands:
               # The dbt commands to run (see also dbt_profiles/profiles.yml; dev_schema is used in the dev profile)
-              - "dbt run --profiles-dir $DBT_PROFILES_DIR --project-dir $DBT_PROJECT_DIR --target=${bundle.target}"
+              - "dbt run --target=${bundle.target}"
 
       environments:
         - environment_key: default
