@@ -12,8 +12,8 @@ jobs:
       DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST_CLI }}
       DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID_CLI }}
       DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_TOKEN_CLI }}
-      #DBT_PROFILES_DIR: ./db_asset_bundle_sample/profiles/ 
-      #DBT_PROJECT_DIR: ./db_asset_bundle_sample
+      DBT_PROFILES_DIR: ./db_asset_bundle_sample/profiles/ 
+      DBT_PROJECT_DIR: ./db_asset_bundle_sample
       DATABRICKS_BUNDLE_TARGET: dev
 
     steps:
