@@ -25,7 +25,7 @@ resources:
               - "dbt debug --target=${bundle.target}"
               - "dbt run --target=${bundle.target}"
               - "dbt docs generate --target ${bundle.target}"
-              - "dbfs cp -r target/ dbfs:/mnt/dbt_docs/dbt_sql_job/${run_id}/"
+              - "dbfs cp -r target/ dbfs:/mnt/dbt_docs/dbt_sql_job/"
 
       environments:
         - environment_key: default
