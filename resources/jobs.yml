@@ -17,12 +17,12 @@ resources:
         - task_key: dbt
           environment_key: default
           dbt_task:
-            project_directory: ../
+            #project_directory: "db_asset_bundle_sample"
             # The default schema, catalog, etc. are defined in ../dbt_profiles/profiles.yml
-            profiles_directory: profiles/
+            #profiles_directory: profiles/
             commands:
               # The dbt commands to run (see also dbt_profiles/profiles.yml; dev_schema is used in the dev profile)
-              - "dbt run --target=${bundle.target}"
+              - "dbt run --project-dir db_asset_bundle_sample --profile-dir db_asset_bundle_sample/profiles/ --target=${bundle.target}"
 
       environments:
         - environment_key: default
