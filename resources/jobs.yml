@@ -24,7 +24,7 @@ resources:
               # The dbt commands to run (see also dbt_profiles/profiles.yml; dev_schema is used in the dev profile)
               - "dbt debug --target=${bundle.target}"
               - "dbt run --target=${bundle.target}"
-              - "dbt docs generate --target ${bundle.target} --target-path /dbfs/mnt/dbt_docs/dbt_sql_job/"
+              - "dbt docs generate --target ${bundle.target}"
         - task_key: copy_docs_to_dbfs
           depends_on:
             - task_key: dbt
@@ -32,7 +32,7 @@ resources:
           notebook_task:
             notebook_path: ../scripts/copy_dbt_docs.ipynb
             base_parameters:
-              source_path: /databricks/driver/dbt_target
+              source_path: target/
               destination_base: /dbfs/mnt/dbt_docs/dbt_sql_job/
 
       environments:
