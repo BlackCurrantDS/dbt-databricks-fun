@@ -24,6 +24,8 @@ resources:
               # The dbt commands to run (see also dbt_profiles/profiles.yml; dev_schema is used in the dev profile)
               - "dbt debug --target=${bundle.target}"
               - "dbt run --target=${bundle.target}"
+              - "dbt docs generate --target ${bundle.target}"
+              - "dbfs cp -r target/ dbfs:/mnt/dbt_docs/${bundle.job_name}/${run_id}/"
 
       environments:
         - environment_key: default
