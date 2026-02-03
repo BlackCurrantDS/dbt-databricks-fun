@@ -25,7 +25,12 @@ resources:
               - "dbt debug --target=${bundle.target}"
               - "dbt run --target=${bundle.target}"
               - "dbt docs generate --target ${bundle.target}"
-              - "dbfs cp -r target/ dbfs:/mnt/dbt_docs/dbt_sql_job/"
+        - task_key: copy_docs_to_dbfs
+          depends_on:
+            - task_key: run_dbt
+          environment_key: default
+          notebook_task:
+            notebook_path: /Repos/dbt-databricks-fun/scripts/copy_dbt_docs
 
       environments:
         - environment_key: default
