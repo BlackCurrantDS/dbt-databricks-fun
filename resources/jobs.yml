@@ -30,10 +30,12 @@ resources:
             - task_key: dbt
           environment_key: default
           notebook_task:
-            notebook_path: ../scripts/copy_dbt_docs.ipynb
+            notebook_path: ../scripts/get_artifacts_cli.ipynb
+            #notebook_path: ../scripts/copy_dbt_docs.ipynb
             base_parameters:
-              source_path: target/
-              destination_base: /dbfs/mnt/dbt_docs/dbt_sql_job/
+              SOURCE_PATH: target/
+              DEST_PATH: /dbfs/mnt/dbt_docs/dbt_sql_job/
+              TASK_KEY: dbt
 
       environments:
         - environment_key: default
