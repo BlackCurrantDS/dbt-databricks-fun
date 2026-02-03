@@ -30,7 +30,7 @@ resources:
             - task_key: dbt
           environment_key: default
           notebook_task:
-            notebook_path: ../scripts/copy_dbt_docs.py
+            notebook_path: ../scripts/copy_dbt_docs.ipynb
 
       environments:
         - environment_key: default
