@@ -7,7 +7,8 @@ run_as:
   service_principal_name: e1798786-5e76-4f16-a7c3-56b17bdb8166
 
 include:
-  - resources/jobs.yml
+  - resources/*.yml
+  - resources/*/*.yml
 
 targets:
   dev:
