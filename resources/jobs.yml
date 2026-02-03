@@ -27,7 +27,7 @@ resources:
               - "dbt docs generate --target ${bundle.target}"
         - task_key: copy_docs_to_dbfs
           depends_on:
-            - task_key: run_dbt
+            - task_key: dbt
           environment_key: default
           notebook_task:
             notebook_path: /Repos/dbt-databricks-fun/scripts/copy_dbt_docs
