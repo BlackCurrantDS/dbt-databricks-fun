@@ -11,12 +11,12 @@ profile: 'db_asset_bundle_sample'
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
-model-paths: ["models"]
-analysis-paths: ["analyses"]
-test-paths: ["tests"]
-seed-paths: ["seeds"]
-macro-paths: ["macros"]
-snapshot-paths: ["snapshots"]
+model-paths: ["db_asset_bundle_sample/models"]
+analysis-paths: ["db_asset_bundle_sample/analyses"]
+test-paths: ["db_asset_bundle_sample/tests"]
+seed-paths: ["db_asset_bundle_sample/seeds"]
+macro-paths: ["db_asset_bundle_sample/macros"]
+snapshot-paths: ["db_asset_bundle_sample/snapshots"]
 
 clean-targets:         # directories to be removed by `dbt clean`
   - "target"
