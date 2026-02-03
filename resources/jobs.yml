@@ -22,8 +22,8 @@ resources:
             profiles_directory: dbt_profiles/
             commands:
               # The dbt commands to run (see also dbt_profiles/profiles.yml; dev_schema is used in the dev profile)
-              - "dbt debug --target=${bundle.target} | tee dbt_debug.log"
-              - "dbt run --target=${bundle.target} | tee dbt_run.log"
+              - "dbt debug --target=${bundle.target}"
+              - "dbt run --target=${bundle.target}"
 
       environments:
         - environment_key: default
