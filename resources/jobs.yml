@@ -24,7 +24,7 @@ resources:
               # The dbt commands to run (see also dbt_profiles/profiles.yml; dev_schema is used in the dev profile)
               - "dbt debug --target=${bundle.target}"
               - "dbt run --target=${bundle.target}"
-              - "dbt docs generate --target ${bundle.target}"
+              - "dbt docs generate --target ${bundle.target} --static"
         - task_key: copy_docs_to_dbfs
           depends_on:
             - task_key: dbt
